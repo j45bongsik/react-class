@@ -1,0 +1,33 @@
+.App {
+  text-align: center;
+}
+
+body {
+  font-family: 'nanumsquare';
+}
+.blackNav {
+  background: #000;
+  width: 100%;
+  display: flex;
+  color: #fff;
+  padding:20px;
+  font-weight: 600;
+  font-size: 20px;
+}
+section {
+  padding: 10px;
+}
+section:not(:first-of-type) {
+  margin-top: 50px;
+}
+section .firstTitle {
+  border-bottom: 2px solid #000;
+  text-align: left;
+}
+section .contArea {
+  border: 1px solid rgba(0,0,0,0.4);
+  padding: 10px;
+}
+section .contArea .list {
+  text-align: left;
+}
