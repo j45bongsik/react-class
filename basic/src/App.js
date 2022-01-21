@@ -648,13 +648,13 @@ function Modal02(props) {  // 3) 부모에게 전달받은 props를 저장
 
           <div className="publish">
 
-            {/* 2) 입력할때마다 입력값이란 state가 입력값 변경을 통해 변경 됨 */}
+            {/* 2) 입력할때마다 비어있던 입력값 state가 입력값변경을 통해 변경 됨 */}
             <input onChange={ (e)=>{ 입력값변경(e.target.value) } }/>  
-            <button type="button" className="btn" onClick={ ()=>{
+            <button type="button" className="btn" onClick={ ()=>{  // 3) 클릭 이벤트가 실행될때
               
-              var arrayCopy = [...글제목]; // 3) 글제목을 deepcopy하고
-              arrayCopy.unshift(입력값);   // 4) 복사된 배열에 unshift앞에 input 입력값변경을 통해 수정된 입력값 추가 
-              글제목변경(arrayCopy);       // 5) 변경함수를 이용해 호출
+              var arrayCopy = [...글제목];  // 4) 글제목을 deepcopy하고
+              arrayCopy.unshift(입력값);     // 5) 복사된 배열에 unshift앞에 input 입력값변경을 통해 수정된 입력값 추가 
+              글제목변경(arrayCopy);          // 6) 변경함수를 이용해 호출
 
             } }>
               저장</button>
@@ -712,13 +712,13 @@ function App() {
 
           <div className="publish">
 
-            {/* 2) 입력할때마다 입력값이란 state가 입력값 변경을 통해 변경 됨 */}
+            {/* 2) 입력할때마다 비어있던 입력값 state가 입력값변경을 통해 변경 됨 */}
             <input onChange={ (e)=>{ 입력값변경(e.target.value) } }/>  
-            <button type="button" className="btn" onClick={ ()=>{
+            <button type="button" className="btn" onClick={ ()=>{  // 3) 클릭 이벤트가 실행될때
               
-              var arrayCopy = [...글제목]; // 3) 글제목을 deepcopy하고
-              arrayCopy.unshift(입력값);   // 4) 복사된 배열에 unshift앞에 input 입력값변경을 통해 수정된 입력값 추가 
-              글제목변경(arrayCopy);       // 5) 변경함수를 이용해 호출
+              var arrayCopy = [...글제목];  // 4) 글제목을 deepcopy하고
+              arrayCopy.unshift(입력값);     // 5) 복사된 배열에 unshift앞에 input 입력값변경을 통해 수정된 입력값 추가 
+              글제목변경(arrayCopy);          // 6) 변경함수를 이용해 호출
 
             } }>
               저장</button>

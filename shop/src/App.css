@@ -1,0 +1,9 @@
+* {
+  text-align: center;
+}
+
+.bg {
+  background-image: url('./background.jpg');
+  background-size: cover;
+  color: #fff;
+}
