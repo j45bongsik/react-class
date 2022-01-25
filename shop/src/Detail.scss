@@ -1,0 +1,21 @@
+$메인컬러 : #ff0000 !important;
+
+.red {
+    color: $메인컬러;
+}
+
+.myAlert {
+    background: #eee;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 500px;
+    width: 100%;
+    margin: 0px auto;
+    p {
+        margin-bottom: 0;
+    }
+    &.type02 {
+        @extend .myAlert;
+        background: #ffe591;
+    }
+}
