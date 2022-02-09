@@ -19,8 +19,8 @@ function App() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link ><Link to="/">Home</Link></Nav.Link>
-              <Nav.Link ><Link to="/detail">Detail</Link></Nav.Link>
+              <Nav.Link as={Link} to="/">Home</Nav.Link>
+              <Nav.Link as={Link} to="/detail">Detail</Nav.Link>
               <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
@@ -35,7 +35,7 @@ function App() {
 
       <Switch>
 
-        <Route exact path="/">
+        <Route exact path="./">
           <Jumbotron className="bg">
             <h1>20% Season Off</h1>
             <p>
@@ -60,15 +60,14 @@ function App() {
           </div>
         </Route>
 
-        <Route path="/detail/:id">
-          
+        <Route path="./detail/:id">
           <Detail shoes={shoes}/>
-
         </Route>
 
-        <Route path="/:id">
+        <Route path="./:id">
           <div>/:id 일때</div>
         </Route>
+
       </Switch>
       
     </div>

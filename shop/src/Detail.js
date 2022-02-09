@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import './Detail.scss';
@@ -11,7 +11,22 @@ let 제목 = styled.h4`
   color : ${ props => props.색상 }
 `;
 
+
+
 function Detail(props){
+
+  let [alert, alertChange] = useState(true);
+  let [inputData, inputDataChange] = useState('');
+
+  useEffect(()=>{
+    let timer = setTimeout(()=>{ //타임아웃 함수는 변수에 저장해서 사용
+      alertChange(false)
+      return ()=>{ clearTimeout(timer) } //에러를 방지하기 위해 타임 함수를 제거 해줘야 한다.
+    },2000)
+  
+  },[alert]); // useEffect의 [] 조건은 alert라는 state가 업데이트 될때만 실행  
+              // 비어있으면 페이지가 로드될때
+
 
   let { id } = useParams();
   let 찾은상품 = props.shoes.find(function(상품){
@@ -25,9 +40,19 @@ function Detail(props){
       <박스>
         <제목 색상="blue" className="red">Detail</제목>
       </박스>
-      <div className="myAlert type02">
-        <p>재고가 얼마 남지 않았습니다.</p>
-      </div>
+      { inputData }
+      <input onChange={(e)=>{ inputDataChange(e.target.value) }}/>
+      
+      {
+        alert === true
+        ? 
+        (<div className="myAlert type02">
+          <p>재고가 얼마 남지 않았습니다.</p>
+        </div>)
+        : null
+        
+
+      }
 
       <div className="row">
         <div className="col-md-6">
@@ -40,7 +65,7 @@ function Detail(props){
           <p>{ 찾은상품.price }원</p>
           <button className="btn btn-danger">주문하기</button> 
           <button className="btn btn-danger" onClick={ ()=>{ 
-              history.push('/');
+              history.push('/'); // 특정경로로 이동시킬때 push() . 전 페이지로 이동시킬때 goBack()
             } }>뒤로가기</button> 
         </div>
       </div>
